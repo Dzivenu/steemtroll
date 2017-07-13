@@ -1,0 +1,3 @@
+<?php
+    // SteemTroll
+    // Don't try to control or the troll will con you...
