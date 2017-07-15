@@ -5,17 +5,17 @@
  * Date Created: 2017/07/15
  * License: GPL3
  */
+    error_reporting(E_ALL);
     session_start();
 
     // Get local and default settings.
     includeConfig('local.php'); // Can put local.php in /mod/ or /config/ it doesn't really matter
     includeConfig('default.php'); //Possible to have a /mod/default.php but why when local.php does same thing?
     //for best practise, avoid using /mod/default.php in most cases.
-
     // get page class
     if(!defined('MIB_SPECIAL_PAGE_CLASS')) {
         includeClass('class_page.php');
-        $page = new Page($db,$auth);
+        $page = new Page();
     } // Otherwise the calling page is responsible for creating $page
 
     // Some useful common functions to use throughout the site.
@@ -65,6 +65,7 @@
     }
 
     function debug() {
+        $temp_pswd = '';
         // only output stuff if debugging is switched on.  Just so we don't
         // accidentally display stuff on a production server.
         if(MIB_DEBUG) {
@@ -93,4 +94,3 @@
             echo '<pre>'.$prefix.'</pre>';
         }
     }
-

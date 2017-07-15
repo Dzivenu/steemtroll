@@ -7,7 +7,7 @@
  */
     class Page {
         public $site_title = 'site title goes here';
-        public $title = 'Welcome';
+        public $title = 'Welcome to SteemTroll';
 
         /** @var User  */
         public $user;
@@ -15,7 +15,6 @@
         public $mode = 'welcome';
 
         public $skin = 'default';
-        public $view = 'web';
         public $css = array('page.css.php');
         public $scripts = array();
 
@@ -34,25 +33,8 @@
         /** @var Content[] */
         public $footer_content = array();
 
-        function __construct($db,$auth) {
-            $this->db = $db;
-            $this->auth = $auth;
-
-            $actions['menuitem'][] = array('menu'=>'main','url'=>'index.php','txt'=>'home');
-            $this->processActions($actions);
-
+        function __construct() {
             if(defined('MIB_SITE_TITLE')) $this->site_title = MIB_SITE_TITLE;
-
-            // Add main menu
-            $content = array();
-
-            includeClass('content_menu.php');
-            $menu = new Menu($this->db);
-            $menu->menu = 'main';
-            $content[] = $menu;
-
-            $actions['custom_header_content'] = $content;
-            $this->processActions($actions);
         }
 
         function __get($name) {
@@ -172,8 +154,6 @@
         }
 
         function renderPage() {
-            $this->checkForDataBaseErrors();
-    //debug($this);
             $css_file = $this->getCSSFiles();
             $scripts = $this->getScripts();
 
