@@ -5,7 +5,10 @@
  * Date Created: 2017/07/15
  * License: GPL3
  */
-    error_reporting(E_ALL);
+    if(MIB_DEBUG) {
+        ini_set('display_errors', 1);
+        ini_set('display_startup_errors', 1);
+    }
     session_start();
 
     // Get local and default settings.
