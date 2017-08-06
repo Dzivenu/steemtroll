@@ -22,8 +22,18 @@
 	
 	// Check if some content was selected, or use the default
  	if(isset($_GET['p'])) {
- 		$page->content[] = $contentArray[$_GET['p']];
+		if(isset($contentArray[$_GET['p']])) {
+			// Show selected content
+			$page->content[] = $contentArray[$_GET['p']];
+		} elseif(isset($error404Page)) {
+			// Show 404 error page
+			$page->content[] = $error404Page;
+		} else {
+			// No error page, so just view default content...
+			$page->content[] = $contentArray[$defaultContent];
+		}
 	} else {
+		// Show default content.
 		$page->content[] = $contentArray[$defaultContent];
 	}
     
