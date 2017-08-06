@@ -13,8 +13,8 @@
 
     // Get local and default settings.
     includeConfig('local.php'); // Can put local.php in /mod/ or /config/ it doesn't really matter
-    includeConfig('default.php'); //Possible to have a /mod/default.php but why when local.php does same thing?
-    //for best practise, avoid using /mod/default.php in most cases.
+    includeConfig('default.php'); //Possible to have a /mod/default.php (Slightly different that local.php in that completely overrides all default settings)
+
     // get page class
     if(!defined('MIB_SPECIAL_PAGE_CLASS')) {
         includeClass('class_page.php');
@@ -97,3 +97,9 @@
             echo '<pre>'.$prefix.'</pre>';
         }
     }
+    
+    function addToContentArray($content) {
+    	global $contentArray;
+    	
+    	$contentArray[$content->label] = $content;
+	}
