@@ -3,8 +3,11 @@
 	a lot of the functionality that other content classes need to inherit or override. */
 
 	class Content {
+		public $label = ''; // should be lower case and unique. Used in html ids, anchors and ajax loading.
 		public $name = ''; // Used in menus
 		public $content = ''; // In base Content class, this really is the HTML content of the page.
+		public $ajax = true; // Allow ajax loading in a tab
+		public $anchor = true; // Allow content to be loaded in an anchor
 
 		public $folder = 'content';
 
