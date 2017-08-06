@@ -10,7 +10,7 @@
 	$homePage->name = 'SteemTroll';
 	$homePage->label = 'home';
 	$homePage->setContent("<h1>Welcome to Steemtroll</h1>
-<p>A CMS for PHP and Apache.</p>
+<p>A CMS for PHP without a database.</p>
 <p><em>Don't try to control or the troll will con you!</em></p>
 <p>A work in progress.</p>");
 	addToContentArray($homePage);
