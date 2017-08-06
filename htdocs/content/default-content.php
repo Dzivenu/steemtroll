@@ -24,5 +24,12 @@ Blog posts, comments and even flat pages can be stored on the STEEM blockchain, 
 into SteemTroll pages via custom content classes.</p>");
 	addToContentArray($aboutPage);
 	
+	// No need to add this one to array, as we're aren't planning to add it to menu or load via ajax etc.
+	$error404Page = new Content();
+	$error404Page->name = "You're looking for WHAT?" ;
+	$error404Page->label = '404';
+	$error404Page->setContent("<h1>Seriously?</h1>
+	<p>What the hell is the matter with you? You're one sick puppy you know that? Or maybe four hundred and four sick puppies...</p>");
+	
 	
 	
