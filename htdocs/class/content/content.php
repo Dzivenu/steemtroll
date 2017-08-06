@@ -1,1 +1,1 @@
-<div class="content">Default content object.</div>
+<div class="content"><?php echo $this->getContent();?></div>
